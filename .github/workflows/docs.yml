@@ -25,17 +25,3 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew dokkaHtmlMultiModule
-      
-      - name: Commit docs to git
-        run: |
-          git add docs/
-          git stash push docs/
-          git reset --hard
-          git fetch origin docs-pages
-          git checkout docs-pages
-          git reset c030076 --hard
-          git stash pop
-          git config user.name "GitHub Actions"
-          git config user.email "github-actions@javaman.net"
-          git commit -m 'Updated docs'
-          git push origin --force
