@@ -1,15 +1,18 @@
 plugins {
-    kotlin("multiplatform") version "1.7.21" apply false
-    kotlin("jvm") version "1.7.21" apply false
-    kotlin("js") version "1.7.21" apply false
-    kotlin("plugin.serialization") version "1.7.21" apply false
-    id("org.jetbrains.dokka") version "1.7.20"
+    kotlin("multiplatform") version "1.8.10" apply false
+    kotlin("jvm") version "1.8.10" apply false
+    kotlin("js") version "1.8.10" apply false
+    kotlin("plugin.serialization") version "1.8.10" apply false
+    id("org.jetbrains.dokka") version "1.8.10-dev-203"
     id("io.gitlab.arturbosch.detekt") version "1.22.0" apply false
     id("maven-publish")
 }
 
-repositories {
-    mavenCentral()
+allprojects{
+    repositories {
+        mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
+    }
 }
 
 subprojects {
